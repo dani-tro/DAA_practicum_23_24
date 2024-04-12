@@ -38,9 +38,6 @@ int main(){
         g[u].push_back(v);
         g[v].push_back(u);
     }
-    for (i = 0; i < n; i++){
-        sort (g[i].begin(), g[i].end());
-    }
     cout << ccomponents () << endl;
 
 }
