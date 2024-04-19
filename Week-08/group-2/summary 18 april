@@ -1,0 +1,10 @@
+1) k-th min sum пролетен 2021 С група - binary search по отговора
+2) lasers (2022 C Sofia open - autumn) - всяка точка кога е покрита, двоично търсене
+--
+3) lexicographically minimal topological sort - Kahn's algorithm + priority_queue
+4) dijkstra
+--
+5) tourguide (Sofia open - autumn, 2019, C3) - multi-BFS, dijkstra
+6) town noi-2 2016 B2 - dijkstra, graph modelling
+7) shortest path with even number of edges
+8) https://codeforces.com/contest/1915/problem/G - graph modelling
