@@ -40,8 +40,7 @@ int main()
 	for(int i = 1; i <= N; i++) cin >> weight[i];
 	for(int i = 1; i <= N; i++) cin >> value[i];
 	fill_F();
-	cout << "Максималната печалба е : " << F[N][M] << endl;
-	cout << "Трябва да вземем предмети с номера : ";
+	cout << F[N][M] << endl;
 	find_solution();
 	return 0;
 }
