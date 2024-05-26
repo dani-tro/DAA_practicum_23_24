@@ -1,0 +1,71 @@
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <iomanip>
+#include <algorithm>
+#include <tuple>
+#include <stack>
+#include <array>
+#include <set>
+using namespace std;
+typedef long long ll;
+
+vector<pair<ll, ll>> a;
+vector<pair<ll, pair<ll, ll>>> edges;
+ll par[500000];
+ll d[500000];
+ll n, ans = 0;
+
+ll dist(pair<ll, ll> p1, pair<ll, ll> p2) {
+	return (p1.first - p2.first) * (p1.first - p2.first) + (p1.second - p2.second) * (p1.second - p2.second);
+}
+
+ll find(ll p) {
+	if (par[p] == p) return p;
+	return par[p] = find(par[p]);
+}
+
+void uni(ll p1, ll p2) {
+	auto pp1 = find(p1);
+	auto pp2 = find(p2);
+	if (d[pp2] > d[pp1]) swap(pp1, pp2);
+	if (d[pp1] == d[pp2]) d[pp2]++;
+	par[pp1] = pp2;
+}
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	cout.tie(nullptr);
+
+	cin >> n;
+	for (ll i = 0; i < n; i++) {
+		ll x, y;
+		cin >> x >> y;
+		a.push_back({x, y});
+		par[i] = i;
+		d[i] = 1;
+	}
+
+	sort(a.begin(), a.end(), [](const auto& x, const auto& y) {
+		return x.first < y.first;
+		});
+	for (ll i = 0; i < n - 1; i++) {
+		edges.push_back({ dist(a[i], a[i + 1]), {i, i + 1} });
+	}
+	sort(a.begin(), a.end(), [](const auto& x, const auto& y) {
+		return x.second < y.second;
+		});
+	for (ll i = 0; i < n - 1; i++) {
+		edges.push_back({ dist(a[i], a[i + 1]), {i, i + 1} });
+	}
+	sort(edges.begin(), edges.end());
+
+	for (auto& x : edges) {
+		if (find(x.second.first) != find(x.second.second)) {
+			uni(x.second.second, x.second.first);
+			ans += x.first;
+		}
+	}
+	cout << ans << endl;
+}

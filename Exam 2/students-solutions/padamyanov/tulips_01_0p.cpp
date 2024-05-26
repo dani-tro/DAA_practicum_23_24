@@ -1,0 +1,96 @@
+#include <iostream>
+using namespace std;
+struct Pair {
+    Pair()
+    {
+        x = 0;
+        y = 0;
+    }
+    Pair(int x, int y)
+    {
+        this->x = x;
+        this->y = y;
+    }
+    int x;
+    int y;
+};
+bool contains(int x, int y, const Pair* groups, size_t size)
+{
+    for (size_t i = 0; i < size; i++)
+    {
+        if (groups[i].x == x && groups[i].y == y)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+void addToGroup(size_t matrix[][10], int n, int m, Pair* groups, size_t& groupSize, int x, int y)
+{
+    groups[groupSize++] = Pair{ x, y };
+    //if (matrix[x][y] == 5) cout << x << " " << y << endl;
+
+    if (x + 1 < n && !contains(x + 1, y, groups, groupSize) && matrix[x][y] == matrix[x + 1][y])
+    {
+        addToGroup(matrix, n, m, groups, groupSize, x + 1, y);
+    }
+    if (x > 0 && !contains(x - 1, y, groups, groupSize) && matrix[x][y] == matrix[x - 1][y])
+    {
+        addToGroup(matrix, n, m, groups, groupSize, x - 1, y);
+    }
+    if (y + 1 < m && !contains(x, y + 1, groups, groupSize) && matrix[x][y] == matrix[x][y + 1])
+    {
+        addToGroup(matrix, n, m, groups, groupSize, x, y + 1);
+    }
+    if (y > 0 && !contains(x, y - 1, groups, groupSize) && matrix[x][y] == matrix[x][y - 1])
+    {
+        addToGroup(matrix, n, m, groups, groupSize, x, y - 1);
+    }
+}
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+
+    size_t matrix[100][100];
+    Pair groups[10000];
+    size_t groupSize = 0;
+    size_t answer = 0;
+
+    int n, m;
+    cin >> n >> m;
+
+    for (size_t i = 0; i < n; i++)
+    {
+        for (size_t j = 0; j < m; j++)
+        {
+            cin >> matrix[i][j];
+        }
+    }
+    for (size_t i = 0; i < n; i++)
+    {
+        for (size_t j = 0; j < m; j++)
+        {
+            if (!contains(i, j, groups, groupSize))
+            {
+                //cout << i << " " << j << endl;
+                addToGroup(matrix, n, m, groups, groupSize, i, j);
+                answer++;
+
+            }
+
+        }
+    }
+
+    cout << answer;
+    //for (size_t i = 0; i < n; i++)
+    //{
+    //    for (size_t j = 0; j < m; j++)
+    //    {
+    //        cout << matrix[i][j] << " ";
+    //    }
+    //    cout << endl;
+    //}
+
+}
