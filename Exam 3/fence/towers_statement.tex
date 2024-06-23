@@ -1,0 +1,81 @@
+\documentclass[12pt]{article}
+
+\input{structure/sti_structure.tex}
+
+\begin{document}
+
+\noindent\textcolor{cyan}{\rule{10cm}{1.5mm}}
+\section*{\hspace{0.61cm}Задача C?. Кули}
+
+%\begin{wrapfigure}{r}{0.25\textwidth}
+%\centering
+%\includegraphics[width=0.25\textwidth]{olimpiici.png}
+%\end{wrapfigure}
+
+Напоследък Алекс доста скучаел, седейки само пред компютъра, и за да преодолее жаждата за сън, решил да си измисли някаква игра, каквато и да е! Първото нещо, което му се мярнало пред погледа, била купчината от гумички, всяка от които с форма на куб $1cm\times1cm\times1cm$. И ето, че идеята веднага се родила. Той искал да ги нареди в редица от кули, така че всяка кула да е съставена от някакъв положителен брой гумички. Също така, всяка кула трябвало да е с височина или строго по-малка от тези на двете ѝ съседни, или строго по-голяма (ако кулата е крайна се гледа само единият ѝ съсед). Разбира се едно такова нареждане е доста лесно за съставяне. На Алекс обаче му било интересно колко са всички възможни начини, по които може да ги подреди, че да е спазено условието. Включете се в неговата кауза срещу скуката, като напишете програма \textbf{towers}, която по даден брой гумички, да намира броя на всички възможни редици от кули от описания вид. Тъй като той може да е доста голям, изведете остатъка му при деление с 1000000007.
+
+\begin{center}
+\includegraphics[scale=0.7]{towers_example_1}
+\end{center}
+
+\noindent\textcolor{cyan}{\rule{8cm}{1.0mm}}
+\subsection*{\hspace{0.61cm}Вход}
+На единствения ред на стандартния вход се въвежда едно число $S$ - броят на гумичките.
+
+\noindent\textcolor{cyan}{\rule{8cm}{1.0mm}}
+\subsection*{\hspace{0.61cm}Изход}
+На един ред изведете едно неотрицателно число - търсения брой начини по модул $10^9+7$.
+
+\noindent\textcolor{cyan}{\rule{8cm}{1.0mm}}
+\subsection*{\hspace{0.61cm}Ограничения}
+$1 \leq S \leq 5000$
+\\ \\ \\ \\
+
+\noindent\textcolor{cyan}{\rule{8cm}{1.0mm}}
+\subsection*{\hspace{0.61cm}Подзадачи}
+\begin{tabular}{ |c|c|c| }
+\hline
+\rule{0pt}{2.2ex} \textbf{Подзадача} & \textbf{Точки} & $S$\\ 
+\hline
+\rule{0pt}{2.2ex} \textbf{1} & 20 & $\leq 10$\\ 
+\hline
+\rule{0pt}{2.2ex} \textbf{2} & 15 & $\leq 40$\\ 
+\hline
+\rule{0pt}{2.2ex} \textbf{3} & 10 & $\leq 100$\\ 
+\hline
+\rule{0pt}{2.2ex} \textbf{4} & 15 & $\leq 500$\\  
+\hline
+\rule{0pt}{2.2ex} \textbf{5} & 30 & $\leq 2000$\\  
+\hline
+\rule{0pt}{2.2ex} \textbf{6} & 10 & $\leq 5000$\\  
+\hline
+\end{tabular}
+\newline\newline
+\indent \textit{Точки за дадена подзадача се получават ако всички тестове преминат успешно.}
+
+\noindent\textcolor{cyan}{\rule{8cm}{1.0mm}}
+\subsection*{\hspace{0.61cm}Пример}
+\begin{tabular}{ |c|c|c| } 
+\hline
+\rule{0pt}{2.2ex}\textbf{Вход} & \textbf{Изход} & \textbf{Обяснение} \\ 
+\hline
+\rule{0pt}{2.2ex}
+\fontfamily{cmss}\selectfont 
+\makecell[tl]{6}
+& \fontfamily{cmss}\selectfont \makecell[tl]{12 \\} & \makecell[tl]{ Всички възможни редици са: \\ \{1,2,1,2\} \{2,1,2,1\} \{1,3,2\} \{2,1,3\} \{2,3,1\} \\ \{3,1,2\} \{1,4,1\} \{2,4\} \{4,2\} \{1,5\} \{5,1\} \{6\}  \\} \\
+\hline
+\rule{0pt}{2.2ex}
+\fontfamily{cmss}\selectfont 
+\makecell[tl]{20}
+& \fontfamily{cmss}\selectfont \makecell[tl]{6949 \\} & \makecell[tl]{} \\
+\hline
+
+\end{tabular}
+	
+\end{document}
+
+
+
+
+
+

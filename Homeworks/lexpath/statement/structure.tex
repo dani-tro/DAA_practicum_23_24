@@ -1,0 +1,112 @@
+%---DOCUMENT MARGINS---
+\usepackage{geometry} % Required for adjusting page dimensions and margins
+\geometry{
+	paper=a4paper, % Paper size, change to letterpaper for US letter size
+	top=4cm, % Top margin
+	bottom=2cm, % Bottom margin
+	left=2cm, % Left margin
+	right=2cm, % Right margin
+	headheight=3cm, % Header height
+	%footskip=1.5cm, % Space from the bottom margin to the baseline of the footer
+	headsep=0.5cm, % Space from the top margin to the baseline of the header
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+\usepackage{cmap}
+
+\usepackage[T2A]{fontenc}
+\usepackage[bulgarian]{babel}
+\usepackage{fontspec}
+\setmainfont{Times New Roman}
+\setsansfont{Times New Roman}
+\setmonofont{Courier New}
+\usepackage[math-style=TeX]{unicode-math}
+\setmathfont{Latin Modern Math}
+
+\usepackage[nobottomtitles*]{titlesec}
+\titleformat
+{\section} % command
+{\normalfont\fontsize{14}{14}\sffamily\bfseries} % format
+{} % label
+{0pt} % sep
+{} % before-code
+\titlespacing{\section}{0pt}{0em}{0em}
+\newcommand{\problem}[1]{%
+	\section[#1]{#1 \fontsize{12}{12}{\hfill{\normalfont{
+				\emoji{hourglass-not-done}\tl \space\space \emoji{floppy-disk} \ml}}}}
+}
+\usepackage[dvipsnames]{xcolor}
+\titleformat
+{\subsection} % command
+{\fontsize{14}{14}\itshape} % format
+{} % label
+{0pt} % sep
+{} % before-code
+[\vspace{-1em}{\color{LimeGreen}\rule{0.2\textwidth}{0.2em}}\vspace{-0.7em}] % after-code
+\titlespacing{\subsection}{0pt}{0.5em}{0em}
+
+\setlength{\parskip}{0.5em}
+\setlength{\parindent}{24pt}
+\sloppy
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\usepackage{setspace}
+\fancyhead[L]{
+	\begin{minipage}{\textwidth}
+		\includegraphics[width=2.5cm]{./logo.jpg}
+	\end{minipage}
+}
+\fancyhead[C]{
+	\begin{minipage}{\textwidth}
+		\centering\large\bf{\header}
+		\vspace{-0.35cm}
+	\end{minipage}
+}
+\fancyhead[R]{}
+\renewcommand{\headrulewidth}{0cm}
+\fancyheadoffset[L,R]{1cm}
+\usepackage{lastpage}
+\fancyfoot[C]{\thepage\ / \pageref*{LastPage}}
+
+\raggedbottom
+
+\usepackage{amsmath}
+\usepackage{stmaryrd}
+
+\usepackage{graphicx}
+\graphicspath{{./}}
+\usepackage[export]{adjustbox}
+\usepackage{wrapfig}
+\makeatletter
+\patchcmd\WF@putfigmaybe{\lower\intextsep}{}{}{\fail}
+\AddToHook{env/wrapfigure/begin}{\setlength{\intextsep}{0pt}}
+\makeatother
+\usepackage[inkscapearea=page,inkscapepath=./svg-inkscape]{svg}
+\svgpath{{./}}
+
+\usepackage{makecell}
+\usepackage{tabularray}
+\AtBeginEnvironment{table}{\vspace{-0.2cm}}
+\AtEndEnvironment{table}{\vspace{-0.2cm}}
+\usepackage{float}
+\usepackage{placeins}
+\usepackage{caption}
+\captionsetup[table]{
+	skip=0.25em,font=it,
+	singlelinecheck=false,justification=justified,indention=-24pt,
+	margin={24pt, 0pt}
+}
+
+\usepackage{enumitem}
+\setlist{itemsep=-0.4em,leftmargin=\parindent,topsep=-\parskip}
+\newcommand{\tabitem}{\indent~~\llap{\textbullet}~~}
+
+\usepackage{hyperref}
+\hypersetup{
+	colorlinks=true,
+	citecolor=blue,
+	linkcolor=blue,
+	urlcolor=cyan,
+}
+
+\usepackage{emoji}

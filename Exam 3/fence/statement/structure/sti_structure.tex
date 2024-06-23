@@ -1,0 +1,81 @@
+\usepackage{titlesec}
+\titleformat
+{\section} % command
+[display] % shape
+{\normalfont\fontsize{14}{14}\sffamily\bfseries} % format
+{} % label
+{1ex} % sep
+{
+    \color{cyan}\rule{0.7\textwidth}{6pt}\vspace{2pt}\newline
+    \color{black}
+} % before-code
+
+\titleformat
+{\subsection} % command
+[display] % shape
+{\normalfont\fontsize{14}{14}\sffamily\bfseries} % format
+{} % label
+{1ex} % sep
+{
+    \color{cyan}\rule{0.5\textwidth}{3pt}\vspace{5pt}\newline
+    \color{black}\hspace{11pt}
+} % before-code
+\titlespacing*{\subsection}{0pt}{0ex}{0em}
+
+\setlength{\parskip}{0.5em}
+
+%https://www.latextemplates.com/template/lachaise-assignment
+
+%---DOCUMENT MARGINS---
+\usepackage{geometry} % Required for adjusting page dimensions and margins
+\geometry{
+	paper=a4paper, % Paper size, change to letterpaper for US letter size
+	top=4.25cm, % Top margin
+	bottom=3cm, % Bottom margin
+	left=2.5cm, % Left margin
+	right=2.5cm, % Right margin
+	headheight=3cm, % Header height
+	%footskip=1.5cm, % Space from the bottom margin to the baseline of the footer
+	headsep=0.8cm, % Space from the top margin to the baseline of the header
+	%showframe, % Uncomment to show how the type block is set on the page
+}
+
+\usepackage{cmap}
+\usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[bulgarian,english]{babel}
+
+\usepackage{amsmath}
+\usepackage{makecell}
+\usepackage{tabulary}
+
+
+\usepackage{indentfirst}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+%\setlength{\headheight}{35pt}
+
+\usepackage{background}
+\backgroundsetup{contents={\includegraphics[width=28cm,height=3.45cm]{./structure/header_background.png}},scale=1,placement=top,opacity=0.8}
+
+\fancyhead{}
+%\fancyhead[L]{\includegraphics[height=2cm]{ruo.jpg}}
+%\fancyhead[R]{\includegraphics[height=2cm]{sap.png}}
+
+\fancyhead[L]{\begin{minipage}{\textwidth}\flushleft\includegraphics[width=2.8cm]{./structure/ruo.png} \vspace{10pt} \end{minipage}}
+\fancyhead[R]{\begin{minipage}{\textwidth}\flushright\includegraphics[width=2.8cm]{./structure/sap.png}\end{minipage}}
+
+\fancyhead[C]{\begin{minipage}{\textwidth}\color{white}\centering\small\bf{\fontfamily{cmss}\selectfont
+\textit{ОТКРИТО ПЪРВЕНСТВО НА СОФИЯ ПО ИНФОРМАТИКА}\\\
+\textit{15 ноември 2021 г.}\\
+\textit{Група C, 7–8 клас} \vspace{-10pt}} \end{minipage}}
+\renewcommand{\headrulewidth}{0pt}
+
+\fancyheadoffset[L,R]{1.5cm}
+
+\pagenumbering{gobble}
+
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\sloppy

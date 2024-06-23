@@ -1,0 +1,1 @@
+make testgen2; ./testgen2 boxing.$1.in; ./author < boxing.$1.in > boxing.$1.out; cat boxing.$1.out;
